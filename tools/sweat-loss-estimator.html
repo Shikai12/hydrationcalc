@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Exercise Sweat Loss Estimator | HydrationCalc.net</title>
+<meta name="description" content="Calculate your sweat rate and sodium replacement needs using pre- and post-workout weight.">
+<meta property="og:title" content="Exercise Sweat Loss Estimator">
+<meta property="og:description" content="Calculate your sweat rate and sodium replacement needs using pre- and post-workout weight.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/sweat-loss-estimator.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise Sweat Loss Estimator">
+<meta name="twitter:description" content="Calculate your sweat rate and sodium replacement needs using pre- and post-workout weight.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/sweat-loss-estimator.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Exercise Sweat Loss Estimator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Exercise Sweat Loss Estimator", "item": "https://hydrationcalc.net/tools/sweat-loss-estimator.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Exercise Sweat Loss Estimator</span>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Exercise Sweat Loss Estimator</h1>
+    <p>Calculate your sweat rate and sodium replacement needs using pre- and post-workout weight.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Sweat Test</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Pre-Workout Weight (kg)</label>
+        <input type="number" id="t4-pre" class="hydr-tool-input" placeholder="70.0" min="20" max="200" step="0.1">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Post-Workout Weight (kg)</label>
+        <input type="number" id="t4-post" class="hydr-tool-input" placeholder="68.5" min="20" max="200" step="0.1">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Duration (minutes)</label>
+        <input type="number" id="t4-duration" class="hydr-tool-input" placeholder="60" min="5" max="600">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Fluid During (mL)</label>
+        <input type="number" id="t4-during" class="hydr-tool-input" placeholder="0" min="0" max="5000">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Temperature (°C)</label>
+        <input type="number" id="t4-temp" class="hydr-tool-input" placeholder="25" min="-10" max="50">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Humidity (%)</label>
+        <input type="number" id="t4-humidity" class="hydr-tool-input" placeholder="60" min="0" max="100">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Sweat Sodium (mg/L)</label>
+        <select id="t4-sodium" class="hydr-tool-input">
+          <option value="400">Light (400 mg/L)</option>
+          <option value="600" selected>Average (600 mg/L)</option>
+          <option value="900">Salty (900 mg/L)</option>
+          <option value="1200">Very Salty (1200 mg/L)</option>
+          <option value="1500">Extreme (1500 mg/L)</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t4Calculate()">Calculate</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t4Reset()">Reset</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t4Export()">Export CSV</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t4Compare()">Compare</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+  </div>
+
+  <div class="hydr-tool-panel" id="t4-results" style="display:none;">
+    <h2 style="margin-top:0;">Results</h2>
+    <div class="hydr-tool-grid">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t4-sweat-rate">--</div>
+        <div class="hydr-tool-result-label">Sweat Rate (L/hr)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t4-fluid-loss">--</div>
+        <div class="hydr-tool-result-label">Total Fluid Loss (mL)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t4-sodium-loss">--</div>
+        <div class="hydr-tool-result-label">Sodium Loss (mg/hr)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t4-replacement">--</div>
+        <div class="hydr-tool-result-label">Suggested Drink (mL/hr)</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t4-chart"></canvas>
+    </div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel" id="t4-history-panel" style="display:none;">
+    <h3 style="margin-top:0;">Test History</h3>
+    <div id="t4-history-list"></div>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>This is the gold-standard sweat test used by sports dietitians. Weigh yourself naked before and after exercise. The difference in grams equals milliliters of fluid lost. Add any fluid you drank during the workout. Divide by hours to get your sweat rate.</p>
+    <p>Sodium loss = sweat rate (L/hr) × sweat sodium concentration (mg/L). If you're a salty sweater (white salt stains on clothes), use the higher end. If you never see salt rings, use the lower end.</p>
+    <p><strong>Tip:</strong> Do this test in different conditions — hot vs. cool, easy vs. hard. Your sweat rate changes with temperature and intensity. Keep a log and adjust your race-day plan accordingly.</p>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/a-complete-guide-to-exercise-fluid-replacement.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Exercise Fluid Replacement</div>
+        <div class="hydr-tail-card-desc">Sweat rate testing and sodium replacement schedules.</div>
+      </a>
+      <a href="../blog/understanding-sweat-sodium-concentration-salty-vs-light.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Sweat Sodium Concentration</div>
+        <div class="hydr-tail-card-desc">Salty vs. light sweaters — which one are you?</div>
+      </a>
+      <a href="../blog/how-to-calculate-sweat-sodium-loss-during-training.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Calculate Sweat Sodium Loss</div>
+        <div class="hydr-tail-card-desc">The math behind cramping and salt replacement.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./water-intake-calculator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake Calculator</div>
+        <div class="hydr-tail-card-desc">Set your baseline before adding exercise.</div>
+      </a>
+      <a href="./beverage-hydration-index.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Beverage Hydration Index</div>
+        <div class="hydr-tail-card-desc">Find high-sodium drinks for salty sweaters.</div>
+      </a>
+      <a href="./pregnancy-hydration-planner.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Pregnancy Planner</div>
+        <div class="hydr-tail-card-desc">Exercise adjustments for pregnant athletes.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY = 'hydr_t4_history';
+  function t4Calculate(){
+    const pre = parseFloat(document.getElementById('t4-pre').value)||70;
+    const post = parseFloat(document.getElementById('t4-post').value)||70;
+    const dur = parseFloat(document.getElementById('t4-duration').value)||60;
+    const during = parseFloat(document.getElementById('t4-during').value)||0;
+    const temp = parseFloat(document.getElementById('t4-temp').value)||25;
+    const humidity = parseFloat(document.getElementById('t4-humidity').value)||60;
+    const sodium = parseFloat(document.getElementById('t4-sodium').value)||600;
+
+    const loss = (pre - post) * 1000 + during;
+    const rate = (loss / dur) * 60 / 1000;
+    const naLoss = Math.round(rate * sodium);
+    const suggest = Math.round(rate * 800);
+
+    document.getElementById('t4-sweat-rate').textContent = rate.toFixed(2);
+    document.getElementById('t4-fluid-loss').textContent = Math.round(loss).toLocaleString();
+    document.getElementById('t4-sodium-loss').textContent = naLoss.toLocaleString();
+    document.getElementById('t4-replacement').textContent = suggest.toLocaleString();
+    document.getElementById('t4-results').style.display = 'block';
+
+    t4DrawChart(loss, during, dur);
+    t4SaveHistory({pre,post,dur,during,temp,humidity,sodium,rate,loss,naLoss,date:new Date().toLocaleDateString()});
+  }
+  function t4DrawChart(loss, during, dur){
+    const canvas = document.getElementById('t4-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio||1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width*dpr; canvas.height = 320*dpr;
+    ctx.scale(dpr,dpr); ctx.clearRect(0,0,rect.width,320);
+
+    const net = loss - during;
+    const parts = [{label:'Sweat Loss',val:net,color:'#ef4444'},{label:'Fluid Drank',val:during,color:'#0ea5e9'}];
+    const max = Math.max(net, during) * 1.2;
+    const barW = 80; const gap = 60;
+    const startX = (rect.width - 2*barW - gap)/2;
+    parts.forEach((p,i)=>{
+      const h = (p.val/max)*200; const x = startX + i*(barW+gap); const y = 260-h;
+      ctx.fillStyle = p.color; ctx.fillRect(x,y,barW,h);
+      ctx.fillStyle = '#475569'; ctx.font='14px system-ui'; ctx.textAlign='center';
+      ctx.fillText(p.label, x+barW/2, 280); ctx.fillText(Math.round(p.val)+' mL', x+barW/2, y-10);
+    });
+  }
+  function t4SaveHistory(entry){
+    let h = JSON.parse(localStorage.getItem(KEY)||'[]');
+    h.unshift(entry); if(h.length>10) h.pop();
+    localStorage.setItem(KEY,JSON.stringify(h));
+    t4RenderHistory();
+  }
+  function t4RenderHistory(){
+    let h = JSON.parse(localStorage.getItem(KEY)||'[]');
+    const el = document.getElementById('t4-history-list');
+    if(!h.length){ el.innerHTML='<p style="color:var(--hydr-text-muted)">No tests yet.</p>'; return;}
+    el.innerHTML = h.map(e=>`<div style="padding:8px 0;border-bottom:1px solid var(--hydr-border);font-size:0.9rem;"><strong>${e.date}</strong> — ${e.rate.toFixed(2)} L/hr, ${e.naLoss.toLocaleString()} mg Na/hr</div>`).join('');
+    document.getElementById('t4-history-panel').style.display='block';
+  }
+  function t4Reset(){
+    document.getElementById('t4-pre').value=''; document.getElementById('t4-post').value='';
+    document.getElementById('t4-duration').value=''; document.getElementById('t4-during').value='';
+    document.getElementById('t4-temp').value=''; document.getElementById('t4-humidity').value='';
+    document.getElementById('t4-results').style.display='none';
+  }
+  function t4Export(){
+    let h = JSON.parse(localStorage.getItem(KEY)||'[]');
+    if(!h.length){alert('No history to export.');return;}
+    const csv = 'Date,Pre Weight,Post Weight,Duration,During,Temp,Humidity,Sodium,Rate,Loss,Na Loss\n'+h.map(e=>`${e.date},${e.pre},${e.post},${e.dur},${e.during},${e.temp},${e.humidity},${e.sodium},${e.rate.toFixed(2)},${e.loss},${e.naLoss}`).join('\n');
+    const blob = new Blob([csv],{type:'text/csv'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='sweat-test-history.csv'; a.click();
+  }
+  function t4Compare(){
+    let h = JSON.parse(localStorage.getItem(KEY)||'[]');
+    if(h.length<2){alert('Need at least 2 tests to compare.');return;}
+    const diff = h[0].rate - h[1].rate;
+    alert(`Latest: ${h[0].rate.toFixed(2)} L/hr\nPrevious: ${h[1].rate.toFixed(2)} L/hr\nDifference: ${diff>0?'+':''}${diff.toFixed(2)} L/hr`);
+  }
+  window.t4Calculate = t4Calculate; window.t4Reset = t4Reset;
+  window.t4Export = t4Export; window.t4Compare = t4Compare;
+  t4RenderHistory();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script>
+</body>
+</html>
