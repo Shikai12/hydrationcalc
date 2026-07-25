@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Hydration Goal Setter | HydrationCalc.net</title>
+<meta name="description" content="Set a custom daily hydration goal, track your streak, and see your weekly average trend.">
+<meta property="og:title" content="Hydration Goal Setter">
+<meta property="og:description" content="Set a custom daily hydration goal, track your streak, and see your weekly average trend.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/hydration-goal-setter.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hydration Goal Setter">
+<meta name="twitter:description" content="Set a custom daily hydration goal, track your streak, and see your weekly average trend.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/hydration-goal-setter.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hydration Goal Setter",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Hydration Goal Setter", "item": "https://hydrationcalc.net/tools/hydration-goal-setter.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Hydration Goal Setter</span>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Hydration Goal Setter</h1>
+    <p>Set a custom daily hydration goal, track your streak, and see your weekly average trend.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Set Your Goal</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Daily Goal (mL)</label>
+        <input type="number" id="t2-goal" class="hydr-tool-input" placeholder="2500" min="500" max="10000">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Today's Intake (mL)</label>
+        <input type="number" id="t2-today" class="hydr-tool-input" placeholder="0" min="0" max="10000">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Morning Water (mL)</label>
+        <input type="number" id="t2-morning" class="hydr-tool-input" placeholder="500" min="0" max="2000">
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t2Log()">Log Today</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t2Reset()">Reset All</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t2Export()">Export Report</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Progress</h2>
+    <div class="hydr-tool-grid">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t2-percent">--</div>
+        <div class="hydr-tool-result-label">% of Goal</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t2-streak">--</div>
+        <div class="hydr-tool-result-label">Day Streak</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t2-weekly">--</div>
+        <div class="hydr-tool-result-label">Weekly Avg (mL)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t2-remaining">--</div>
+        <div class="hydr-tool-result-label">Remaining (mL)</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t2-chart"></canvas>
+    </div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel" id="t2-history-panel">
+    <h3 style="margin-top:0;">History (Last 14 Days)</h3>
+    <div id="t2-history-list"></div>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>Enter your daily fluid goal and log your intake each day. The streak counter tracks consecutive days you hit your goal. The weekly average smooths out day-to-day variation. The chart shows your last 14 days so you can spot patterns.</p>
+    <p><strong>Tip:</strong> If you're consistently under your goal, lower it by 10% for a week. Build the habit first, then raise it. Perfection is not the goal — consistency is.</p>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/the-14-day-hydration-streak-setup-guide.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">14-Day Hydration Streak Setup</div>
+        <div class="hydr-tail-card-desc">Build a habit that sticks with a simple streak counter.</div>
+      </a>
+      <a href="../blog/building-your-morning-hydration-routine-500ml-to-start.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Morning Hydration Routine</div>
+        <div class="hydr-tail-card-desc">Why 500 mL before coffee changes everything.</div>
+      </a>
+      <a href="../blog/10-signs-youre-chronically-dehydrated.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">10 Signs of Chronic Dehydration</div>
+        <div class="hydr-tail-card-desc">Headaches, fatigue, and bad breath might be thirst.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./water-intake-calculator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake Calculator</div>
+        <div class="hydr-tail-card-desc">Find your personalized baseline goal.</div>
+      </a>
+      <a href="./beverage-hydration-index.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Beverage Hydration Index</div>
+        <div class="hydr-tail-card-desc">Track net fluid from all your drinks.</div>
+      </a>
+      <a href="./sweat-loss-estimator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Exercise Sweat Loss Estimator</div>
+        <div class="hydr-tail-card-desc">Add exercise adjustments to your goal.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY = 'hydr_t2_data';
+  function t2Log(){
+    const goal = parseInt(document.getElementById('t2-goal').value)||2500;
+    const today = parseInt(document.getElementById('t2-today').value)||0;
+    const morning = parseInt(document.getElementById('t2-morning').value)||0;
+    let data = JSON.parse(localStorage.getItem(KEY)||'{"entries":[],"streak":0,"lastDate":""}');
+    const date = new Date().toLocaleDateString();
+    data.entries.unshift({date,today,morning,goal});
+    if(data.entries.length>30) data.entries.pop();
+    if(data.lastDate !== date){
+      if(today>=goal) data.streak = (data.lastDate===new Date(Date.now()-86400000).toLocaleDateString())?data.streak+1:1;
+      else data.streak = 0;
+      data.lastDate = date;
+    }
+    localStorage.setItem(KEY,JSON.stringify(data));
+    t2Render();
+  }
+  function t2Render(){
+    let data = JSON.parse(localStorage.getItem(KEY)||'{"entries":[],"streak":0}');
+    const latest = data.entries[0]||{today:0,goal:2500};
+    const pct = Math.round((latest.today/latest.goal)*100);
+    document.getElementById('t2-percent').textContent = pct+'%';
+    document.getElementById('t2-streak').textContent = data.streak;
+    const week = data.entries.slice(0,7);
+    const avg = week.length ? Math.round(week.reduce((a,b)=>a+b.today,0)/week.length) : 0;
+    document.getElementById('t2-weekly').textContent = avg.toLocaleString();
+    document.getElementById('t2-remaining').textContent = Math.max(0, latest.goal-latest.today).toLocaleString();
+    t2DrawChart(data.entries.slice(0,14));
+    const list = document.getElementById('t2-history-list');
+    list.innerHTML = data.entries.slice(0,14).map(e=>`<div style="padding:8px 0;border-bottom:1px solid var(--hydr-border);font-size:0.9rem;"><strong>${e.date}</strong> — ${e.today.toLocaleString()}/${e.goal.toLocaleString()} mL ${e.today>=e.goal?'✅':'⚠️'}</div>`).join('');
+  }
+  function t2DrawChart(entries){
+    const canvas = document.getElementById('t2-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio||1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width*dpr; canvas.height = 320*dpr;
+    ctx.scale(dpr,dpr); ctx.clearRect(0,0,rect.width,320);
+    if(!entries.length) return;
+    const max = Math.max(...entries.map(e=>e.goal), ...entries.map(e=>e.today))*1.1;
+    const barW = Math.min(40, (rect.width-60)/entries.length);
+    const gap = 8;
+    const startX = (rect.width - entries.length*barW - (entries.length-1)*gap)/2;
+    entries.reverse().forEach((e,i)=>{
+      const x = startX + i*(barW+gap);
+      const h1 = (e.today/max)*240;
+      const h2 = (e.goal/max)*240;
+      ctx.fillStyle = '#e2e8f0';
+      ctx.fillRect(x, 280-h2, barW, h2);
+      ctx.fillStyle = e.today>=e.goal?'#10b981':'#0ea5e9';
+      ctx.fillRect(x, 280-h1, barW, h1);
+      ctx.fillStyle = '#475569'; ctx.font='10px system-ui'; ctx.textAlign='center';
+      ctx.fillText(e.date.split('/').slice(0,2).join('/'), x+barW/2, 298);
+    });
+  }
+  function t2Reset(){
+    if(!confirm('Clear all history?'))return;
+    localStorage.removeItem(KEY);
+    document.getElementById('t2-goal').value='';
+    document.getElementById('t2-today').value='';
+    document.getElementById('t2-morning').value='';
+    t2Render();
+  }
+  function t2Export(){
+    let data = JSON.parse(localStorage.getItem(KEY)||'{"entries":[]}');
+    if(!data.entries.length){alert('No data to export.');return;}
+    const csv = 'Date,Goal,Today,Morning,Hit Goal\n'+data.entries.map(e=>`${e.date},${e.goal},${e.today},${e.morning||0},${e.today>=e.goal?'Yes':'No'}`).join('\n');
+    const blob = new Blob([csv],{type:'text/csv'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='hydration-streak.csv'; a.click();
+  }
+  window.t2Log = t2Log; window.t2Reset = t2Reset; window.t2Export = t2Export;
+  t2Render();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script>
+</body>
+</html>
