@@ -1,0 +1,18 @@
+{
+  "domain": "hydrationcalc.net",
+  "prefix": "hydr",
+  "author": "Jordan Lee",
+  "author_title": "Registered Dietitian Nutritionist & Health Tech Blogger",
+  "author_credentials": "RD, LDN, CSSD",
+  "location": "Miami, Florida",
+  "site_name": "HydrationCalc.net",
+  "theme_color": "#0ea5e9",
+  "accent_color": "#f59e0b",
+  "social": {
+    "twitter": "https://twitter.com/jordanlee_rd",
+    "instagram": "https://instagram.com/jordanlee.rd"
+  },
+  "email": "privacy@hydrationcalc.net",
+  "contact_email": "contact@hydrationcalc.net",
+  "founded": "2024"
+}
