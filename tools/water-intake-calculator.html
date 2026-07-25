@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Daily Water Intake Calculator | HydrationCalc.net</title>
+<meta name="description" content="Calculate your personalized daily fluid goal based on body weight, climate, activity level, altitude, and life stage.">
+<meta property="og:title" content="Daily Water Intake Calculator">
+<meta property="og:description" content="Calculate your personalized daily fluid goal based on body weight, climate, activity level, altitude, and life stage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/water-intake-calculator.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daily Water Intake Calculator">
+<meta name="twitter:description" content="Calculate your personalized daily fluid goal based on body weight, climate, activity level, altitude, and life stage.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/water-intake-calculator.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Daily Water Intake Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Daily Water Intake Calculator", "item": "https://hydrationcalc.net/tools/water-intake-calculator.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Daily Water Intake Calculator</span>
+  </div>
+</div>
+
+<!-- Ad Slot: tool_top -->
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Daily Water Intake Calculator</h1>
+    <p>Calculate your personalized daily fluid goal based on body weight, climate, activity level, altitude, and life stage.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Your Info</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Weight (kg)</label>
+        <input type="number" id="t1-weight" class="hydr-tool-input" placeholder="70" min="20" max="300">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Climate</label>
+        <select id="t1-climate" class="hydr-tool-input">
+          <option value="1.0">Temperate</option>
+          <option value="1.2">Desert / Dry</option>
+          <option value="1.3">Tropical / Humid</option>
+          <option value="0.9">Cold</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Activity Level</label>
+        <select id="t1-activity" class="hydr-tool-input">
+          <option value="30">Sedentary (30 mL/kg)</option>
+          <option value="35" selected>Light Activity (35 mL/kg)</option>
+          <option value="40">Moderate (40 mL/kg)</option>
+          <option value="45">Very Active (45 mL/kg)</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Altitude (meters)</label>
+        <input type="number" id="t1-altitude" class="hydr-tool-input" placeholder="0" min="0" max="6000">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Life Stage</label>
+        <select id="t1-stage" class="hydr-tool-input">
+          <option value="0">None</option>
+          <option value="300">Pregnancy (1st trimester)</option>
+          <option value="500">Pregnancy (2nd/3rd trimester)</option>
+          <option value="700">Breastfeeding</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Exercise (minutes/day)</label>
+        <input type="number" id="t1-exercise" class="hydr-tool-input" placeholder="0" min="0" max="300">
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t1Calculate()">Calculate</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t1Reset()">Reset</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t1Export()">Export CSV</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t1Compare()">Compare Last</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+  </div>
+
+  <div class="hydr-tool-panel" id="t1-results" style="display:none;">
+    <h2 style="margin-top:0;">Your Result</h2>
+    <div class="hydr-tool-grid">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t1-total">--</div>
+        <div class="hydr-tool-result-label">Total Fluid (mL/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t1-oz">--</div>
+        <div class="hydr-tool-result-label">Total Fluid (oz/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t1-cups">--</div>
+        <div class="hydr-tool-result-label">Cups (8 oz)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t1-breakdown">--</div>
+        <div class="hydr-tool-result-label">Schedule</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t1-chart"></canvas>
+    </div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel" id="t1-history-panel" style="display:none;">
+    <h3 style="margin-top:0;">History</h3>
+    <div id="t1-history-list"></div>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>This calculator uses the standard sports nutrition formula: <strong>body weight × activity factor (mL/kg)</strong>. Then it applies multipliers for climate, altitude, and life stage. The result is your total fluid need from all sources — water, beverages, and food. About 20–30% comes from food, so your plain water target is slightly lower.</p>
+    <p><strong>Tip:</strong> Start with the calculated number, then fine-tune by checking your urine color. Pale straw = you're on track. Dark yellow = drink more.</p>
+  </div>
+</div>
+
+<!-- Ad Slot: tool_bottom -->
+<!-- Related -->
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/how-to-calculate-your-daily-water-intake-by-body-weight.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">How to Calculate Daily Water Intake</div>
+        <div class="hydr-tail-card-desc">The real formula using weight, climate, and activity.</div>
+      </a>
+      <a href="../blog/the-8-glasses-myth-where-it-came-from-and-why-it-wrong.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">The 8-Glasses Myth</div>
+        <div class="hydr-tail-card-desc">Where it came from and why it's wrong.</div>
+      </a>
+      <a href="../blog/understanding-altitudes-impact-on-fluid-needs.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Altitude's Impact on Fluid Needs</div>
+        <div class="hydr-tail-card-desc">Why you need more water at elevation.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./hydration-goal-setter.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Hydration Goal Setter</div>
+        <div class="hydr-tail-card-desc">Track your daily intake and build streaks.</div>
+      </a>
+      <a href="./beverage-hydration-index.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Beverage Hydration Index</div>
+        <div class="hydr-tail-card-desc">See how your drinks actually hydrate.</div>
+      </a>
+      <a href="./sweat-loss-estimator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Exercise Sweat Loss Estimator</div>
+        <div class="hydr-tail-card-desc">Calculate sweat rate and sodium needs.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'hydr_t1_history';
+  function t1Calculate(){
+    const w = parseFloat(document.getElementById('t1-weight').value) || 70;
+    const climate = parseFloat(document.getElementById('t1-climate').value) || 1.0;
+    const activity = parseFloat(document.getElementById('t1-activity').value) || 35;
+    const alt = parseFloat(document.getElementById('t1-altitude').value) || 0;
+    const stage = parseFloat(document.getElementById('t1-stage').value) || 0;
+    const ex = parseFloat(document.getElementById('t1-exercise').value) || 0;
+
+    let base = w * activity;
+    base *= climate;
+    if (alt > 2500) base *= (1 + (alt - 2500) / 10000);
+    base += stage;
+    base += (ex / 60) * 500;
+
+    const total = Math.round(base);
+    const oz = Math.round(total / 29.57);
+    const cups = Math.round(oz / 8);
+
+    document.getElementById('t1-total').textContent = total.toLocaleString();
+    document.getElementById('t1-oz').textContent = oz;
+    document.getElementById('t1-cups').textContent = cups;
+    document.getElementById('t1-breakdown').textContent = Math.round(total/4) + ' mL × 4';
+    document.getElementById('t1-results').style.display = 'block';
+
+    t1DrawChart(total, w, climate, stage, ex);
+    t1SaveHistory({w, climate, activity, alt, stage, ex, total, date: new Date().toLocaleDateString()});
+  }
+
+  function t1DrawChart(total, w, climate, stage, ex){
+    const canvas = document.getElementById('t1-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width * dpr; canvas.height = 320 * dpr;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0,0,rect.width,320);
+
+    const parts = [
+      {label:'Base', val: w*35, color:'#0ea5e9'},
+      {label:'Climate', val: w*35*(climate-1), color:'#38bdf8'},
+      {label:'Life Stage', val: stage, color:'#f59e0b'},
+      {label:'Exercise', val: (ex/60)*500, color:'#10b981'}
+    ];
+    const max = Math.max(...parts.map(p=>p.val), total*0.3);
+    const barW = Math.min(60, (rect.width-80)/parts.length);
+    const startX = (rect.width - parts.length*barW - (parts.length-1)*20)/2;
+
+    parts.forEach((p,i)=>{
+      const h = (p.val/total)*240;
+      const x = startX + i*(barW+20);
+      const y = 280 - h;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(x, y, barW, h);
+      ctx.fillStyle = '#475569';
+      ctx.font = '12px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText(p.label, x+barW/2, 300);
+      ctx.fillText(Math.round(p.val), x+barW/2, y-8);
+    });
+  }
+
+  function t1SaveHistory(entry){
+    let h = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    h.unshift(entry); if(h.length>10) h.pop();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(h));
+    t1RenderHistory();
+  }
+  function t1RenderHistory(){
+    let h = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const el = document.getElementById('t1-history-list');
+    if(!h.length){ el.innerHTML='<p style="color:var(--hydr-text-muted)">No history yet.</p>'; return;}
+    el.innerHTML = h.map(e => `<div style="padding:8px 0;border-bottom:1px solid var(--hydr-border);font-size:0.9rem;"><strong>${e.date}</strong> — ${e.w}kg, ${Math.round(e.total).toLocaleString()} mL</div>`).join('');
+    document.getElementById('t1-history-panel').style.display='block';
+  }
+  function t1Reset(){
+    document.getElementById('t1-weight').value='';
+    document.getElementById('t1-climate').value='1.0';
+    document.getElementById('t1-activity').value='35';
+    document.getElementById('t1-altitude').value='';
+    document.getElementById('t1-stage').value='0';
+    document.getElementById('t1-exercise').value='';
+    document.getElementById('t1-results').style.display='none';
+  }
+  function t1Export(){
+    let h = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    if(!h.length){alert('No history to export.');return;}
+    const csv = 'Date,Weight,Climate,Activity,Altitude,Stage,Exercise,Total\n'+h.map(e=>`${e.date},${e.w},${e.climate},${e.activity},${e.alt},${e.stage},${e.ex},${e.total}`).join('\n');
+    const blob = new Blob([csv],{type:'text/csv'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='water-intake-history.csv'; a.click();
+  }
+  function t1Compare(){
+    let h = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    if(h.length<2){alert('Need at least 2 entries to compare.');return;}
+    const diff = h[0].total - h[1].total;
+    alert(`Latest: ${h[0].total.toLocaleString()} mL\nPrevious: ${h[1].total.toLocaleString()} mL\nDifference: ${diff>0?'+':''}${diff.toLocaleString()} mL`);
+  }
+  window.t1Calculate = t1Calculate; window.t1Reset = t1Reset;
+  window.t1Export = t1Export; window.t1Compare = t1Compare;
+  t1RenderHistory();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script></body>
+</html>
