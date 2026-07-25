@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Kidney Stone Prevention Fluid Planner | HydrationCalc.net</title>
+<meta name="description" content="Urine volume targets, citrate-rich beverage recommendations, and dietary adjustments for stone prevention.">
+<meta property="og:title" content="Kidney Stone Prevention Fluid Planner">
+<meta property="og:description" content="Urine volume targets, citrate-rich beverage recommendations, and dietary adjustments for stone prevention.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/kidney-stone-fluid-planner.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kidney Stone Prevention Fluid Planner">
+<meta name="twitter:description" content="Urine volume targets, citrate-rich beverage recommendations, and dietary adjustments for stone prevention.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/kidney-stone-fluid-planner.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kidney Stone Prevention Fluid Planner",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Kidney Stone Prevention Fluid Planner", "item": "https://hydrationcalc.net/tools/kidney-stone-fluid-planner.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Kidney Stone Prevention Fluid Planner</span>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Kidney Stone Prevention Fluid Planner</h1>
+    <p>Urine volume targets, citrate-rich beverage recommendations, and dietary adjustments for stone prevention.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Your Profile</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Stone History</label>
+        <select id="t6-history" class="hydr-tool-input">
+          <option value="no">Never had a stone</option>
+          <option value="yes" selected>Had at least one stone</option>
+          <option value="multiple">Multiple stones / high risk</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Weight (kg)</label>
+        <input type="number" id="t6-weight" class="hydr-tool-input" placeholder="70" min="20" max="200">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Climate</label>
+        <select id="t6-climate" class="hydr-tool-input">
+          <option value="1.0">Temperate</option>
+          <option value="1.2">Desert</option>
+          <option value="1.3">Tropical</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Activity Level</label>
+        <select id="t6-activity" class="hydr-tool-input">
+          <option value="30">Sedentary</option>
+          <option value="35" selected>Light</option>
+          <option value="40">Moderate</option>
+          <option value="45">Very Active</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Daily Sodium (mg)</label>
+        <input type="number" id="t6-sodium" class="hydr-tool-input" placeholder="2300" min="500" max="8000">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Oxalate Intake</label>
+        <select id="t6-oxalate" class="hydr-tool-input">
+          <option value="low">Low (rarely eat spinach/nuts)</option>
+          <option value="moderate" selected>Moderate</option>
+          <option value="high">High (daily spinach, nuts, chocolate)</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t6Calculate()">Calculate Plan</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t6Reset()">Reset</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t6Export()">Export Plan</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+
+  </div>
+
+  <div class="hydr-tool-panel" id="t6-results" style="display:none;">
+    <h2 style="margin-top:0;">Your Stone Prevention Plan</h2>
+    <div class="hydr-tool-grid">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t6-fluid">--</div>
+        <div class="hydr-tool-result-label">Fluid Goal (mL/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t6-urine">--</div>
+        <div class="hydr-tool-result-label">Target Urine (mL/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t6-citrate">--</div>
+        <div class="hydr-tool-result-label">Citrate Target (mL lemon)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t6-sodium-rec">--</div>
+        <div class="hydr-tool-result-label">Sodium Limit (mg/day)</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t6-chart"></canvas>
+    </div>
+    <div id="t6-advice" style="margin-top:16px; padding:16px; background:#f0f9ff; border-radius:8px; font-size:0.9rem; color:#0c4a6e;"></div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel" id="t6-history-panel" style="display:none;">
+    <h3 style="margin-top:0;">History</h3>
+    <div id="t6-history-list"></div>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>Stones form when urine becomes too concentrated with calcium, oxalate, and uric acid. The single most important preventive factor is fluid — specifically, urine output of at least 2.5 liters per day. Because some fluid is lost through sweat and breathing, you need to drink more than 2.5 liters to produce that much urine.</p>
+    <p>Citrate (from lemon or lime juice) binds to calcium in urine, preventing crystal formation. A half cup of fresh lemon juice per day can significantly raise urinary citrate. Dietary calcium actually reduces stone risk by binding oxalate in the gut — but calcium supplements can increase risk.</p>
+    <p><strong>Tip:</strong> Check your urine color. Pale straw is the goal. Dark yellow means you're concentrated. Amber means you're in the danger zone. Keep a 1-liter bottle and finish one by breakfast, one by lunch, one by dinner, and another half by bedtime.</p>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/how-to-prevent-kidney-stones-with-strategic-fluid-intake.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Prevent Kidney Stones</div>
+        <div class="hydr-tail-card-desc">Strategic fluid and citrate intake for stone formers.</div>
+      </a>
+      <a href="../blog/how-to-calculate-your-daily-water-intake-by-body-weight.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake</div>
+        <div class="hydr-tail-card-desc">The baseline formula before stone adjustments.</div>
+      </a>
+      <a href="../blog/electrolyte-balance-101-sodium-potassium-and-magnesium.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Electrolyte Balance 101</div>
+        <div class="hydr-tail-card-desc">Why sodium matters for stone risk.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./water-intake-calculator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake Calculator</div>
+        <div class="hydr-tail-card-desc">Your baseline before stone prevention.</div>
+      </a>
+      <a href="./hydration-goal-setter.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Hydration Goal Setter</div>
+        <div class="hydr-tail-card-desc">Track your daily fluid streak.</div>
+      </a>
+      <a href="./beverage-hydration-index.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Beverage Hydration Index</div>
+        <div class="hydr-tail-card-desc">Find citrate-rich beverages.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const HISTORY_MULT = {no:1.0, yes:1.3, multiple:1.4};
+  const OXALATE_MULT = {low:1.0, moderate:1.1, high:1.2};
+  const ADVICE = {
+    no: "You're at low risk. Maintain 2.5 L urine output daily. Add lemon to your water 3x/week for prevention.",
+    yes: "You've had a stone. Aim for 3.0–3.5 L fluid daily. Add half a cup of lemon juice. Limit sodium to <2,300 mg. Pair high-oxalate foods with calcium.",
+    multiple: "High risk. Target 3.5 L fluid daily. Lemon juice daily. Sodium <1,500 mg. Consider a urology referral for a 24-hour urine test."
+  };
+  function t6Calculate(){
+    const history = document.getElementById('t6-history').value;
+    const w = parseFloat(document.getElementById('t6-weight').value)||70;
+    const climate = parseFloat(document.getElementById('t6-climate').value)||1.0;
+    const activity = parseFloat(document.getElementById('t6-activity').value)||35;
+    const sodium = parseFloat(document.getElementById('t6-sodium').value)||2300;
+    const oxalate = document.getElementById('t6-oxalate').value;
+
+    const base = w * activity * climate;
+    const fluid = Math.round(base * HISTORY_MULT[history] * OXALATE_MULT[oxalate]);
+    const urine = Math.round(fluid * 0.75);
+    const citrate = history === 'no' ? 30 : history === 'yes' ? 60 : 120;
+    const sodiumRec = history === 'multiple' ? 1500 : 2300;
+
+    document.getElementById('t6-fluid').textContent = fluid.toLocaleString();
+    document.getElementById('t6-urine').textContent = urine.toLocaleString();
+    document.getElementById('t6-citrate').textContent = citrate;
+    document.getElementById('t6-sodium-rec').textContent = sodiumRec.toLocaleString();
+    document.getElementById('t6-advice').textContent = ADVICE[history];
+    document.getElementById('t6-results').style.display = 'block';
+
+    t6DrawChart(fluid, urine, citrate);
+    t6SaveHistory({history, weight: w, fluid, date: new Date().toLocaleDateString()});
+  }
+  function t6DrawChart(fluid, urine, citrate){
+    const canvas = document.getElementById('t6-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio||1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width*dpr; canvas.height = 320*dpr;
+    ctx.scale(dpr,dpr); ctx.clearRect(0,0,rect.width,320);
+
+    const parts = [{label:'Fluid Intake',val:fluid,color:'#0ea5e9'},{label:'Urine Output',val:urine,color:'#38bdf8'}];
+    const max = fluid * 1.1;
+    const barW = 80; const gap = 60;
+    const startX = (rect.width - 2*barW - gap)/2;
+    parts.forEach((p,i)=>{
+      const h = (p.val/max)*200; const x = startX + i*(barW+gap); const y = 260-h;
+      ctx.fillStyle = p.color; ctx.fillRect(x,y,barW,h);
+      ctx.fillStyle = '#475569'; ctx.font='14px system-ui'; ctx.textAlign='center';
+      ctx.fillText(p.label, x+barW/2, 280); ctx.fillText(Math.round(p.val).toLocaleString()+' mL', x+barW/2, y-10);
+    });
+  }
+  function t6Reset(){
+    document.getElementById('t6-history').value='yes';
+    document.getElementById('t6-weight').value='';
+    document.getElementById('t6-climate').value='1.0';
+    document.getElementById('t6-activity').value='35';
+    document.getElementById('t6-sodium').value='';
+    document.getElementById('t6-oxalate').value='moderate';
+    document.getElementById('t6-results').style.display='none';
+  }
+  function t6Export(){
+    const fluid = document.getElementById('t6-fluid').textContent;
+    if(fluid==='--'){alert('Calculate first.');return;}
+    const history = document.getElementById('t6-history').value;
+    const text = `Kidney Stone Prevention Plan
+Fluid Goal: ${fluid} mL/day
+${ADVICE[history]}
+
+Generated by HydrationCalc.net`;
+    const blob = new Blob([text],{type:'text/plain'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='stone-prevention-plan.txt'; a.click();
+  }
+  const T6_KEY = 'hydr_t6_history';
+  function t6SaveHistory(entry){
+    let h = JSON.parse(localStorage.getItem(T6_KEY)||'[]');
+    h.unshift(entry); if(h.length>10) h.pop();
+    localStorage.setItem(T6_KEY,JSON.stringify(h));
+    t6RenderHistory();
+  }
+  function t6RenderHistory(){
+    let h = JSON.parse(localStorage.getItem(T6_KEY)||'[]');
+    const el = document.getElementById('t6-history-list');
+    if(!el) return;
+    if(!h.length){ el.innerHTML='<p style="color:var(--hydr-text-muted)">No history yet.</p>'; return;}
+    el.innerHTML = h.map(e=>`<div style="padding:8px 0;border-bottom:1px solid var(--hydr-border);font-size:0.9rem;"><strong>${e.date}</strong> — ${e.history}, ${e.fluid.toLocaleString()} mL</div>`).join('');
+    document.getElementById('t6-history-panel').style.display='block';
+  }
+  window.t6Calculate = t6Calculate; window.t6Reset = t6Reset; window.t6Export = t6Export;
+  t6RenderHistory();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script>
+</body>
+</html>
