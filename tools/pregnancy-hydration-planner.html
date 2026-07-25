@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Pregnancy & Breastfeeding Hydration Planner | HydrationCalc.net</title>
+<meta name="description" content="Trimester-specific fluid goals, lactation water cost, and warning signs for dehydration during pregnancy.">
+<meta property="og:title" content="Pregnancy & Breastfeeding Hydration Planner">
+<meta property="og:description" content="Trimester-specific fluid goals, lactation water cost, and warning signs for dehydration during pregnancy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/pregnancy-hydration-planner.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pregnancy & Breastfeeding Hydration Planner">
+<meta name="twitter:description" content="Trimester-specific fluid goals, lactation water cost, and warning signs for dehydration during pregnancy.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/pregnancy-hydration-planner.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pregnancy & Breastfeeding Hydration Planner",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Pregnancy & Breastfeeding Hydration Planner", "item": "https://hydrationcalc.net/tools/pregnancy-hydration-planner.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Pregnancy & Breastfeeding Hydration Planner</span>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Pregnancy & Breastfeeding Hydration Planner</h1>
+    <p>Trimester-specific fluid goals, lactation water cost, and warning signs for dehydration during pregnancy.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Your Profile</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Weight (kg)</label>
+        <input type="number" id="t5-weight" class="hydr-tool-input" placeholder="65" min="30" max="200">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Stage</label>
+        <select id="t5-stage" class="hydr-tool-input">
+          <option value="pre">Pre-Pregnancy</option>
+          <option value="first">First Trimester (1–13 weeks)</option>
+          <option value="second">Second Trimester (14–27 weeks)</option>
+          <option value="third">Third Trimester (28–40 weeks)</option>
+          <option value="breastfeeding">Breastfeeding</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Activity Level</label>
+        <select id="t5-activity" class="hydr-tool-input">
+          <option value="30">Sedentary</option>
+          <option value="35" selected>Light Activity</option>
+          <option value="40">Moderate</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Climate</label>
+        <select id="t5-climate" class="hydr-tool-input">
+          <option value="1.0">Temperate</option>
+          <option value="1.2">Desert</option>
+          <option value="1.3">Tropical</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t5Calculate()">Calculate</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t5Reset()">Reset</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t5Export()">Export Plan</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+  </div>
+
+  <div class="hydr-tool-panel" id="t5-results" style="display:none;">
+    <h2 style="margin-top:0;">Your Plan</h2>
+    <div class="hydr-tool-grid">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t5-total">--</div>
+        <div class="hydr-tool-result-label">Total Fluid (mL/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t5-oz">--</div>
+        <div class="hydr-tool-result-label">Total Fluid (oz/day)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t5-addition">--</div>
+        <div class="hydr-tool-result-label">Extra vs. Baseline</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t5-schedule">--</div>
+        <div class="hydr-tool-result-label">Daily Schedule</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t5-chart"></canvas>
+    </div>
+    <div id="t5-warnings" style="margin-top:16px; padding:16px; background:#fef3c7; border-radius:8px; font-size:0.9rem; color:#92400e;"></div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel" id="t5-history-panel" style="display:none;">
+    <h3 style="margin-top:0;">History</h3>
+    <div id="t5-history-list"></div>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>Pregnancy increases blood volume by nearly 50% by the third trimester. That extra blood needs water. Breastfeeding requires an additional 700–1,000 mL per day because breast milk is 87% water.</p>
+    <p>This calculator adds the trimester-specific increase to your baseline: +300 mL in first trimester, +500 mL in second, +700–800 mL in third, and +700–1,000 mL while breastfeeding. The result is your total fluid from all sources — beverages and food.</p>
+    <p><strong>Warning signs to watch for:</strong> Dark urine, dizziness, decreased fetal movement, or sudden swelling in hands/face. If you experience these, increase fluids and contact your provider.</p>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/pregnancy-hydration-planning-by-trimester.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Pregnancy Hydration by Trimester</div>
+        <div class="hydr-tail-card-desc">Why each trimester needs a different fluid strategy.</div>
+      </a>
+      <a href="../blog/what-is-urine-color-telling-you-about-hydration.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Urine Color Guide</div>
+        <div class="hydr-tail-card-desc">The free, real-time hydration feedback tool.</div>
+      </a>
+      <a href="../blog/electrolyte-balance-101-sodium-potassium-and-magnesium.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Electrolyte Balance 101</div>
+        <div class="hydr-tail-card-desc">Sodium, potassium, and magnesium for moms.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./water-intake-calculator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake Calculator</div>
+        <div class="hydr-tail-card-desc">Your pre-pregnancy baseline.</div>
+      </a>
+      <a href="./hydration-goal-setter.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Hydration Goal Setter</div>
+        <div class="hydr-tail-card-desc">Track your daily intake during pregnancy.</div>
+      </a>
+      <a href="./sweat-loss-estimator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Exercise Sweat Loss Estimator</div>
+        <div class="hydr-tail-card-desc">For pregnant athletes staying active.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const STAGES = {pre:0, first:300, second:500, third:750, breastfeeding:850};
+  const WARNINGS = {
+    first: "First trimester tip: Small, frequent sips work better than large glasses. Try ice chips or popsicles if you're nauseous.",
+    second: "Second trimester: Blood volume is ramping up. Space fluids throughout the day to avoid constant bathroom trips at night.",
+    third: "Third trimester: Your stomach is compressed. Drink smaller amounts more often. Watch for sudden swelling — could signal preeclampsia.",
+    breastfeeding: "Breastfeeding: Drink a glass of water every time you nurse. Keep bottles in every room you feed the baby.",
+    pre: "Pre-pregnancy: Establish your baseline now. Good habits make pregnancy hydration easier."
+  };
+  function t5Calculate(){
+    const w = parseFloat(document.getElementById('t5-weight').value)||65;
+    const stage = document.getElementById('t5-stage').value;
+    const activity = parseFloat(document.getElementById('t5-activity').value)||35;
+    const climate = parseFloat(document.getElementById('t5-climate').value)||1.0;
+
+    const base = w * activity * climate;
+    const addition = STAGES[stage] || 0;
+    const total = Math.round(base + addition);
+    const oz = Math.round(total / 29.57);
+    const preBase = Math.round(w * activity * climate);
+
+    document.getElementById('t5-total').textContent = total.toLocaleString();
+    document.getElementById('t5-oz').textContent = oz;
+    document.getElementById('t5-addition').textContent = '+' + addition.toLocaleString() + ' mL';
+    document.getElementById('t5-schedule').textContent = Math.round(total/5) + ' mL × 5';
+    document.getElementById('t5-warnings').textContent = WARNINGS[stage] || '';
+    document.getElementById('t5-results').style.display = 'block';
+
+    t5DrawChart(preBase, addition, total);
+  }
+  function t5DrawChart(base, addition, total){
+    const canvas = document.getElementById('t5-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio||1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width*dpr; canvas.height = 320*dpr;
+    ctx.scale(dpr,dpr); ctx.clearRect(0,0,rect.width,320);
+
+    const parts = [{label:'Baseline',val:base,color:'#0ea5e9'},{label:'Pregnancy Add',val:addition,color:'#f59e0b'}];
+    const max = total * 1.1;
+    const barW = 80; const gap = 60;
+    const startX = (rect.width - 2*barW - gap)/2;
+    parts.forEach((p,i)=>{
+      const h = (p.val/max)*200; const x = startX + i*(barW+gap); const y = 260-h;
+      ctx.fillStyle = p.color; ctx.fillRect(x,y,barW,h);
+      ctx.fillStyle = '#475569'; ctx.font='14px system-ui'; ctx.textAlign='center';
+      ctx.fillText(p.label, x+barW/2, 280); ctx.fillText(Math.round(p.val).toLocaleString()+' mL', x+barW/2, y-10);
+    });
+  }
+  function t5Reset(){
+    document.getElementById('t5-weight').value='';
+    document.getElementById('t5-stage').value='pre';
+    document.getElementById('t5-activity').value='35';
+    document.getElementById('t5-climate').value='1.0';
+    document.getElementById('t5-results').style.display='none';
+  }
+  function t5Export(){
+    const stage = document.getElementById('t5-stage').value;
+    const total = document.getElementById('t5-total').textContent;
+    if(total==='--'){alert('Calculate first.');return;}
+    const text = `Hydration Plan for ${stage}
+Total: ${total} mL/day
+${WARNINGS[stage]}
+
+Generated by HydrationCalc.net`;
+    const blob = new Blob([text],{type:'text/plain'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='pregnancy-hydration-plan.txt'; a.click();
+  }
+  const T5_KEY = 'hydr_t5_history';
+  function t5SaveHistory(entry){
+    let h = JSON.parse(localStorage.getItem(T5_KEY)||'[]');
+    h.unshift(entry); if(h.length>10) h.pop();
+    localStorage.setItem(T5_KEY,JSON.stringify(h));
+    t5RenderHistory();
+  }
+  function t5RenderHistory(){
+    let h = JSON.parse(localStorage.getItem(T5_KEY)||'[]');
+    const el = document.getElementById('t5-history-list');
+    if(!el) return;
+    if(!h.length){ el.innerHTML='<p style="color:var(--hydr-text-muted)">No history yet.</p>'; return;}
+    el.innerHTML = h.map(e=>`<div style="padding:8px 0;border-bottom:1px solid var(--hydr-border);font-size:0.9rem;"><strong>${e.date}</strong> — ${e.stage}, ${e.total.toLocaleString()} mL</div>`).join('');
+    document.getElementById('t5-history-panel').style.display='block';
+  }
+  
+  window.t5Calculate = t5Calculate; window.t5Reset = t5Reset; window.t5Export = t5Export;
+  t5RenderHistory();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script>
+</body>
+</html>
