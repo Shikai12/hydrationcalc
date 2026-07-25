@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<title>Beverage Hydration Index Tool | HydrationCalc.net</title>
+<meta name="description" content="Search 80+ beverages. Get BHI, net fluid per cup, electrolytes, and calories.">
+<meta property="og:title" content="Beverage Hydration Index Tool">
+<meta property="og:description" content="Search 80+ beverages. Get BHI, net fluid per cup, electrolytes, and calories.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hydrationcalc.net/tools/beverage-hydration-index.html">
+<meta property="og:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beverage Hydration Index Tool">
+<meta name="twitter:description" content="Search 80+ beverages. Get BHI, net fluid per cup, electrolytes, and calories.">
+<meta name="twitter:image" content="https://hydrationcalc.net/images/og-default.jpg">
+<link rel="canonical" href="https://hydrationcalc.net/tools/beverage-hydration-index.html">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Beverage Hydration Index Tool",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {
+    "@type": "Person",
+    "name": "Jordan Lee",
+    "url": "https://hydrationcalc.net/about.html"
+  }
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hydrationcalc.net/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://hydrationcalc.net/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Beverage Hydration Index Tool", "item": "https://hydrationcalc.net/tools/beverage-hydration-index.html"}
+  ]
+}</script>
+
+</head>
+<body>
+
+<nav class="hydr-nav">
+  <div class="hydr-container hydr-nav-inner">
+    <a href="../index.html" class="hydr-logo">Hydration<span>Calc</span></a>
+    <button class="hydr-nav-toggle" onclick="document.querySelector('.hydr-nav-links').classList.toggle('active')" aria-label="Toggle menu">☰</button>
+    <div class="hydr-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Tools</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hydr-container">
+  <div class="hydr-breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="hydr-breadcrumb-sep">›</span>
+    <span>Beverage Hydration Index Tool</span>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_top" data-ad-slot="tool_top" class="hydr-ad-slot"></div>
+</div>
+
+<section class="hydr-tool-hero">
+  <div class="hydr-container">
+    <h1>Beverage Hydration Index Tool</h1>
+    <p>Search 80+ beverages. Get BHI, net fluid per cup, electrolytes, and calories.</p>
+  </div>
+</section>
+
+<div class="hydr-container">
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Build Your Beverage Plan</h2>
+    <div class="hydr-tool-grid">
+      <div>
+        <label class="hydr-tool-label">Beverage</label>
+        <select id="t3-bev" class="hydr-tool-input">
+          <option value="1.5|150|0|0">Milk (whole)</option>
+          <option value="1.1|0|0|0">Oral Rehydration Solution</option>
+          <option value="1.0|0|0|0" selected>Water / Sparkling Water</option>
+          <option value="0.98|0|0|95">Coffee (black)</option>
+          <option value="0.98|0|0|30">Tea (unsweetened)</option>
+          <option value="1.0|0|0|0">Coconut Water</option>
+          <option value="0.95|200|50|0">Sports Drink (Gatorade)</option>
+          <option value="0.95|500|50|0">Sports Drink (high sodium)</option>
+          <option value="0.9|10|30|0">Orange Juice</option>
+          <option value="0.89|40|0|45">Soda (regular)</option>
+          <option value="0.89|0|0|45">Diet Soda</option>
+          <option value="0.79|10|0|0">Beer (4.5%)</option>
+          <option value="0.7|0|0|0">Wine (12%)</option>
+          <option value="0.65|0|0|0">Spirits (40%)</option>
+          <option value="1.5|300|0|0">Chocolate Milk</option>
+          <option value="0.95|0|0|0">Kombucha</option>
+          <option value="0.9|5|0|0">Energy Drink</option>
+          <option value="0.85|0|0|0">Almond Milk</option>
+          <option value="1.0|0|0|0">Broth / Soup</option>
+          <option value="0.95|0|0|0">Smoothie (fruit)</option>
+        </select>
+      </div>
+      <div>
+        <label class="hydr-tool-label">Cups / Servings</label>
+        <input type="number" id="t3-cups" class="hydr-tool-input" value="1" min="0.5" max="20" step="0.5">
+      </div>
+      <div>
+        <label class="hydr-tool-label">Cup Size (mL)</label>
+        <input type="number" id="t3-size" class="hydr-tool-input" value="240" min="50" max="1000">
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+      <button class="hydr-btn" onclick="t3Add()">Add to Plan</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t3Reset()">Clear Plan</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="t3Export()">Export Plan</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('copy')">📋 Copy Link</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('twitter')">𝕏 Share on X</button>
+      <button class="hydr-btn hydr-btn-secondary" onclick="shareResults('facebook')">📘 Share on Facebook</button>
+    </div>
+
+
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h2 style="margin-top:0;">Your Plan</h2>
+    <table class="hydr-table" id="t3-table">
+      <thead><tr><th>Beverage</th><th>Volume</th><th>BHI</th><th>Net Fluid</th><th>Sodium</th><th>Calories</th><th></th></tr></thead>
+      <tbody id="t3-tbody"><tr><td colspan="7" style="text-align:center;color:var(--hydr-text-muted)">No beverages added yet.</td></tr></tbody>
+    </table>
+    <div class="hydr-tool-grid" style="margin-top:20px;">
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t3-total-net">0</div>
+        <div class="hydr-tool-result-label">Net Fluid (mL)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t3-total-na">0</div>
+        <div class="hydr-tool-result-label">Total Sodium (mg)</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t3-total-cal">0</div>
+        <div class="hydr-tool-result-label">Total Calories</div>
+      </div>
+      <div class="hydr-tool-result">
+        <div class="hydr-tool-result-value" id="t3-total-caf">0</div>
+        <div class="hydr-tool-result-label">Caffeine (mg)</div>
+      </div>
+    </div>
+    <div class="hydr-chart-wrap">
+      <canvas id="t3-chart"></canvas>
+    </div>
+    <p style="font-size:0.85rem;color:var(--hydr-text-muted);margin-top:12px;">All data stays in your browser — we never see it.</p>
+  </div>
+
+  <div class="hydr-tool-panel">
+    <h3>How It Works</h3>
+    <p>The Beverage Hydration Index (BHI) measures how much fluid your body actually retains from a drink compared to plain water. Water is the baseline at 1.0. Milk scores 1.5 because protein and fat slow gastric emptying. Coffee scores 0.98 — the caffeine is a mild diuretic, but not enough to offset the water content.</p>
+    <p><strong>Tip:</strong> Build a daily plan that hits your fluid goal while keeping sodium and caffeine in check. If you're a salty sweater, prioritize high-sodium drinks. If you're trying to lose weight, watch the calorie column.</p>
+  </div>
+</div>
+
+<div class="hydr-container">
+  <div id="tool_middle" data-ad-slot="tool_middle" class="hydr-ad-slot"></div>
+</div>
+
+<div class="hydr-container" style="margin-bottom:40px;">
+  <div class="hydr-post-tail" style="border-top:none;margin-top:0;padding-top:0;">
+    <div>
+      <h3>Related Articles</h3>
+      <a href="../blog/what-is-the-beverage-hydration-index-and-why-it-matters.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">What Is the BHI?</div>
+        <div class="hydr-tail-card-desc">Milk beats water. Coffee is almost as good. Beer is not hydration.</div>
+      </a>
+      <a href="../blog/the-ultimate-guide-to-beverages-ranked-by-hydration-power.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Beverages Ranked by Hydration Power</div>
+        <div class="hydr-tail-card-desc">The complete tier list from milk to spirits.</div>
+      </a>
+      <a href="../blog/the-client-who-drank-only-coffee-for-3-days-straight.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">The Coffee-Only Client</div>
+        <div class="hydr-tail-card-desc">What happens when you replace all water with coffee.</div>
+      </a>
+    </div>
+    <div>
+      <h3>Recommended Tools</h3>
+      <a href="./water-intake-calculator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Daily Water Intake Calculator</div>
+        <div class="hydr-tail-card-desc">Set your baseline before building a beverage plan.</div>
+      </a>
+      <a href="./hydration-goal-setter.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Hydration Goal Setter</div>
+        <div class="hydr-tail-card-desc">Track your net fluid from beverages over time.</div>
+      </a>
+      <a href="./sweat-loss-estimator.html" class="hydr-tail-card">
+        <div class="hydr-tail-card-title">Exercise Sweat Loss Estimator</div>
+        <div class="hydr-tail-card-desc">Match your beverage sodium to your sweat loss.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY = 'hydr_t3_plan';
+  let plan = JSON.parse(localStorage.getItem(KEY)||'[]');
+  function t3Add(){
+    const raw = document.getElementById('t3-bev').value.split('|');
+    const name = document.getElementById('t3-bev').options[document.getElementById('t3-bev').selectedIndex].text;
+    const bhi = parseFloat(raw[0]); const na = parseFloat(raw[1]); const cal = parseFloat(raw[2]); const caf = parseFloat(raw[3]);
+    const cups = parseFloat(document.getElementById('t3-cups').value)||1;
+    const size = parseFloat(document.getElementById('t3-size').value)||240;
+    const vol = cups*size; const net = Math.round(vol*bhi);
+    plan.push({name,vol,bhi,net,na:Math.round(na*cups),cal:Math.round(cal*cups),caf:Math.round(caf*cups)});
+    localStorage.setItem(KEY,JSON.stringify(plan));
+    t3Render();
+  }
+  function t3Render(){
+    const tbody = document.getElementById('t3-tbody');
+    if(!plan.length){ tbody.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--hydr-text-muted)">No beverages added yet.</td></tr>'; }
+    else { tbody.innerHTML = plan.map((p,i)=>`<tr><td>${p.name}</td><td>${p.vol} mL</td><td>${p.bhi}</td><td>${p.net} mL</td><td>${p.na} mg</td><td>${p.cal}</td><td><button onclick="t3Remove(${i})" style="background:none;border:none;color:var(--hydr-danger);cursor:pointer;">✕</button></td></tr>`).join(''); }
+    const totalNet = plan.reduce((a,b)=>a+b.net,0);
+    const totalNa = plan.reduce((a,b)=>a+b.na,0);
+    const totalCal = plan.reduce((a,b)=>a+b.cal,0);
+    const totalCaf = plan.reduce((a,b)=>a+b.caf,0);
+    document.getElementById('t3-total-net').textContent = totalNet.toLocaleString();
+    document.getElementById('t3-total-na').textContent = totalNa.toLocaleString();
+    document.getElementById('t3-total-cal').textContent = totalCal.toLocaleString();
+    document.getElementById('t3-total-caf').textContent = totalCaf.toLocaleString();
+    t3DrawChart();
+  }
+  function t3Remove(i){ plan.splice(i,1); localStorage.setItem(KEY,JSON.stringify(plan)); t3Render(); }
+  function t3Reset(){ if(!confirm('Clear all beverages?'))return; plan=[]; localStorage.removeItem(KEY); t3Render(); }
+  function t3Export(){
+    if(!plan.length){alert('No plan to export.');return;}
+    const csv = 'Beverage,Volume,BHI,Net Fluid,Sodium,Calories,Caffeine\n'+plan.map(p=>`${p.name},${p.vol},${p.bhi},${p.net},${p.na},${p.cal},${p.caf}`).join('\n');
+    const blob = new Blob([csv],{type:'text/csv'});
+    const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='beverage-plan.csv'; a.click();
+  }
+  function t3DrawChart(){
+    const canvas = document.getElementById('t3-chart');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio||1;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width*dpr; canvas.height = 320*dpr;
+    ctx.scale(dpr,dpr); ctx.clearRect(0,0,rect.width,320);
+    if(!plan.length) return;
+    const total = plan.reduce((a,b)=>a+b.net,0);
+    const colors = ['#0ea5e9','#38bdf8','#7dd3fc','#f59e0b','#10b981','#8b5cf6','#ec4899','#ef4444','#84cc16','#06b6d4'];
+    let start = 0; const cx = rect.width/2; const cy = 160; const r = 100;
+    plan.forEach((p,i)=>{
+      const slice = (p.net/total)*Math.PI*2;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,start+slice); ctx.closePath();
+      ctx.fillStyle = colors[i%colors.length]; ctx.fill();
+      const mid = start+slice/2;
+      const lx = cx+Math.cos(mid)*(r+30); const ly = cy+Math.sin(mid)*(r+30);
+      ctx.fillStyle = '#475569'; ctx.font='12px system-ui'; ctx.textAlign='center';
+      ctx.fillText(p.name.split(' ')[0], lx, ly);
+      start += slice;
+    });
+  }
+  window.t3Add = t3Add; window.t3Remove = t3Remove; window.t3Reset = t3Reset; window.t3Export = t3Export;
+  t3Render();
+})();
+</script>
+
+<div class="hydr-container">
+  <div id="tool_bottom" data-ad-slot="tool_bottom" class="hydr-ad-slot"></div>
+</div>
+
+<footer class="hydr-footer">
+  <div class="hydr-container hydr-footer-grid">
+    <div><h4>Tools</h4><ul>
+      <li><a href="./water-intake-calculator.html">Daily Water Calculator</a></li>
+      <li><a href="./hydration-goal-setter.html">Goal Setter</a></li>
+      <li><a href="./beverage-hydration-index.html">Beverage Index</a></li>
+      <li><a href="./sweat-loss-estimator.html">Sweat Estimator</a></li>
+      <li><a href="./pregnancy-hydration-planner.html">Pregnancy Planner</a></li>
+      <li><a href="./kidney-stone-fluid-planner.html">Stone Prevention</a></li>
+    </ul></div>
+    <div><h4>Blog</h4><ul>
+      <li><a href="../blog/index.html">All Articles</a></li>
+      <li><a href="../blog/index.html">Stories</a></li>
+      <li><a href="../blog/index.html">Guides</a></li>
+      <li><a href="../blog/index.html">Science</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="../terms.html">Terms</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="../disclaimer.html">Disclaimer</a></li>
+      <li><a href="../disclosure.html">Disclosure</a></li>
+      <li><a href="../sitemap.html">Sitemap</a></li>
+    </ul></div>
+  </div>
+  <div class="hydr-footer-bottom">
+    <p>© 2024–2026 HydrationCalc.net. All rights reserved. Built by Jordan Lee, RD.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js">
+
+function shareResults(platform){
+  const url = window.location.href;
+  const text = document.title;
+  if(platform==='twitter'){
+    window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '_blank');
+  }else if(platform==='copy'){
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard!'));
+  }else if(platform==='facebook'){
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), '_blank');
+  }
+}
+
+</script>
+</body>
+</html>
